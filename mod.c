@@ -23,7 +23,7 @@ void CALLBACK fn_vRollBoostDisplay( SPTXT_tdstTextInfo *p_stString )
 
 	HIE_tdstSuperObject *p_stRayman = GAM_g_stEngineStructure->g_hMainActor;
 
-	if ( !p_stRayman || strcmp(XHIE_fn_szGetSuperObjectPersonalName(p_stRayman), "Rayman") != 0 )
+	if ( !p_stRayman || _stricmp(XHIE_fn_szGetSuperObjectPersonalName(p_stRayman), "Rayman") != 0 )
 		return;
 
 	DNM_tdstDynamics *p_stDynamics = p_stRayman->hLinkedObject.p_stCharacter->hDynam->p_stDynamics;
@@ -48,5 +48,6 @@ void CALLBACK fn_vRollBoostDisplay( SPTXT_tdstTextInfo *p_stString )
 
 void fn_vInitMod( void )
 {
+	SPTXT_vInit();
 	SPTXT_vAddTextCallback(fn_vRollBoostDisplay);
 }
