@@ -2,19 +2,17 @@
 #include "mod.h"
 
 
-BOOL APIENTRY DllMain( HMODULE hModule, DWORD dwReason, LPVOID lpReserved )
+__declspec(dllexport)
+int ModMain(BOOL bInit)
 {
-	switch ( dwReason )
+	if ( bInit )
 	{
-		case DLL_PROCESS_ATTACH:
-		{
-			fn_vInitMod();
-			break;
-		}
-		case DLL_PROCESS_DETACH:
-		case DLL_THREAD_ATTACH:
-		case DLL_THREAD_DETACH:
-			break;
+		fn_vInitMod();
 	}
-	return TRUE;
+	else
+	{
+		fn_vDesInitMod();
+	}
+
+	return 0;
 }

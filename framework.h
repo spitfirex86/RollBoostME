@@ -5,4 +5,3 @@
 #include <stdlib.h>
 
 #include <ACP_Ray2.h>
-#include <detours.h>
